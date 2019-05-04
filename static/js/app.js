@@ -1,6 +1,18 @@
 // from data.js
 var tableData = data;
 
+var tbody = d3.select("tbody");
+
+var initData = JSON.parse(JSON.stringify(tableData));
+
+initData.forEach((initrow) => {
+    var row = tbody.append("tr");
+    Object.entries(initrow).forEach(([key, value]) => {
+        var cell = tbody.append("td");
+        cell.text(value);
+    });
+});
+
 // Select the submit button
 var submit = d3.select("#filter-btn");
 
